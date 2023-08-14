@@ -22,13 +22,13 @@
 </template>
 
 <script setup lang="ts">
-import { Role } from '@/interfaces/interfaces'
+import { type Role } from '@/interfaces/interfaces'
 const props = defineProps<{
   role: Role
 }>()
 const emit = defineEmits<{
   (e: 'editRole', id: number): void
-  (e: 'deleteRole', id: string): void
+  (e: 'deleteRole', id: number): void
 }>()
 
 const editRole = () => {

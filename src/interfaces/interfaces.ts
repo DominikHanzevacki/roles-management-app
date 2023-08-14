@@ -1,5 +1,5 @@
 export interface RolesResponse {
-  roles: Role[]
+  data: Role[]
 }
 
 export interface Role {

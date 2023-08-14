@@ -23,8 +23,8 @@
         v-for="role in filteredRoles"
         :key="role.id"
         :role="role"
-        @editRole="editRole"
-        @deleteRole="deleteRole"
+        @editRole="editRole(role.id)"
+        @deleteRole="deleteRole(role.id)"
       ></RoleCard>
     </div>
   </div>
@@ -35,6 +35,7 @@ import RoleCard from '@/components/role-card/RoleCard.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { type Role } from '@/interfaces/interfaces'
 
 const store = useStore()
 const router = useRouter()
@@ -46,14 +47,14 @@ onMounted(() => {
 })
 const searchRole = ref('')
 const selectedFilter = ref('all')
-const roles = computed(() => store.state.roles)
+const roles = computed(() => store.state.data)
 
 const filteredRoles = computed(() => {
   const inputedRole = searchRole.value.toLowerCase()
   const filter = selectedFilter.value
 
   return roles.value.filter(
-    (role) =>
+    (role: Role) =>
       role.name.toLowerCase().includes(inputedRole) &&
       (filter === 'all' ||
         (filter === 'active' && role.active) ||

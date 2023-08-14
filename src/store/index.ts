@@ -1,14 +1,15 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import type { Role, RolesResponse } from '@/interfaces/interfaces'
 export default createStore({
   state: {
-    roles: []
+    data: []
   },
   getters: {
-    getRoles: (state) => state.roles
+    getRoles: (state: RolesResponse): Role[] => state.data
   },
   actions: {
-    async fetchRoles({ commit }) {
+    async fetchRoles({ commit }: any) {
       try {
         const response: RolesResponse = await axios.get(' http://localhost:3000/roles')
         commit('SET_ROLES', response.data)
@@ -16,7 +17,7 @@ export default createStore({
         alert(error)
       }
     },
-    async deleteRole({ commit }, roleId) {
+    async deleteRole({ commit }: any, roleId: number) {
       try {
         commit('DELETE_ROLE', roleId)
       } catch (error) {
@@ -25,11 +26,11 @@ export default createStore({
     }
   },
   mutations: {
-    SET_ROLES(state, roles) {
-      state.roles = roles
+    SET_ROLES(state: RolesResponse, roles: Role[]) {
+      state.data = roles
     },
-    DELETE_ROLE(state, roleId) {
-      state.roles = state.roles.filter((role) => role.id !== roleId)
+    DELETE_ROLE(state: RolesResponse, roleId: number) {
+      state.data = state.data.filter((role) => role.id !== roleId)
     }
   }
 })
