@@ -1,6 +1,18 @@
 # role-management-app
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help you setup this application.
+
+### Technologies Used
+
+This project uses the following libraries:
+
+- Axios: "^1.4.0"
+- Vue: "^3.3.4"
+- Vue-router: "^4.2.4"
+- Vuex: "^4.1.0"
+- Tailwindcss: "^3.3.3"
+- Typescript: "~5.1.6"
+- Vite: "^4.4.6"
 
 ## Recommended IDE Setup
 
@@ -13,9 +25,17 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+### Start JSON live server
+
+This project uses json live serve since I didn't have much time to setup backend api. Just make sure to use a second terminal to act like a server and run the following command.
+
+```sh
+json-server --watch data.json
+```
 
 ## Customize configuration
 
