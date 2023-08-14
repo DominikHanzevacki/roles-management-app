@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl font-sans font-bold;
+  }
+  input {
+    @apply p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500;
+  }
+  .router-link {
+    @apply bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded;
+  }
+  .page {
+    @apply p-10;
+  }
+  .btn-submit {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full;
+  }
+  .roles-card {
+    @apply border text-center shadow-[0px_2px_4px_rgba(0,0,0,0.1)] bg-[#f9f9f9] p-5 border-solid border-[#ddd] w-full;
+  }
+}
