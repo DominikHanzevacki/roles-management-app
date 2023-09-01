@@ -49,6 +49,8 @@ import { RoleType, UserType } from '@/interfaces/interfaces'
 import { computed, type ComputedRef, ref } from 'vue'
 import { useStore } from 'vuex'
 import { type Role } from '@/interfaces/interfaces'
+import dayjs from 'dayjs'
+
 const store = useStore()
 const selectedRole: ComputedRef<Role> = computed(() => store.state.selectedRole)
 
@@ -56,7 +58,8 @@ const formData = ref<Role>({
   ...selectedRole.value,
   name: selectedRole.value.name,
   type: selectedRole.value.type,
-  description: selectedRole.value.description
+  description: selectedRole.value.description,
+  modified_on: dayjs().format('DD/MM/YYYY')
 })
 
 const emit = defineEmits<{
