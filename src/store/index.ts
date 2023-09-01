@@ -54,7 +54,6 @@ export default createStore({
       state.data.push(newRole)
     },
     EDIT_ROLE(state: RolesResponse, editedRole: Role) {
-      console.log(editedRole)
       const roleId = state.data.findIndex((role) => role.id === editedRole.id)
       state.data[roleId] = editedRole
     },
